@@ -1,0 +1,128 @@
+$sizes: (
+  "0": 0,
+  "1": 0.382rem,
+  "2": 0.618rem,
+  "3": 1rem,
+  "4": 1.382rem,
+  "5": 1.618rem,
+  "6": 2rem,
+  "7": 2.381rem,
+  "8": 2.618rem,
+  "9": 3rem,
+  "10": 3.382rem,
+  "11": 3.618rem,
+  "12": 4rem,
+);
+
+@each $name, $size in $sizes {
+  .p#{$name} {
+    padding: $size;
+  }
+  .pv#{$name} {
+    padding-top: $size;
+    padding-bottom: $size;
+  }
+  .ph#{$name} {
+    padding-left: $size;
+    padding-right: $size;
+  }
+  .pt#{$name} {
+    padding-top: $size;
+  }
+  .pb#{$name} {
+    padding-bottom: $size;
+  }
+  .pr#{$name} {
+    padding-right: $size;
+  }
+  .pl#{$name} {
+    padding-left: $size;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) { 
+  @each $name, $size in $sizes {
+    .p--m-#{$name} {
+      padding: $size;
+    }
+    .pv--m-#{$name} {
+      padding-top: $size;
+      padding-bottom: $size;
+    }
+    .ph--m-#{$name} {
+      padding-left: $size;
+      padding-right: $size;
+    }
+    .pt--m-#{$name} {
+      padding-top: $size;
+    }
+    .pb--m-#{$name} {
+      padding-bottom: $size;
+    }
+    .pr--m-#{$name} {
+      padding-right: $size;
+    }
+    .pl--m-#{$name} {
+      padding-left: $size;
+    }
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) { 
+  @each $name, $size in $sizes {
+    .p--l-#{$name} {
+      padding: $size;
+    }
+    .pv--l-#{$name} {
+      padding-top: $size;
+      padding-bottom: $size;
+    }
+    .ph--l-#{$name} {
+      padding-left: $size;
+      padding-right: $size;
+    }
+    .pt--l-#{$name} {
+      padding-top: $size;
+    }
+    .pb--l-#{$name} {
+      padding-bottom: $size;
+    }
+    .pr--l-#{$name} {
+      padding-right: $size;
+    }
+    .pl--l-#{$name} {
+      padding-left: $size;
+    }
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { 
+  @each $name, $size in $sizes {
+    .p--xl-#{$name} {
+      padding: $size;
+    }
+    .pv--xl-#{$name} {
+      padding-top: $size;
+      padding-bottom: $size;
+    }
+    .ph--xl-#{$name} {
+      padding-left: $size;
+      padding-right: $size;
+    }
+    .pt--xl-#{$name} {
+      padding-top: $size;
+    }
+    .pb--xl-#{$name} {
+      padding-bottom: $size;
+    }
+    .pr--xl-#{$name} {
+      padding-right: $size;
+    }
+    .pl--xl-#{$name} {
+      padding-left: $size;
+    }
+  }
+}

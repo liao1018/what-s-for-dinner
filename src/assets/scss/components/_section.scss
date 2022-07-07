@@ -1,0 +1,7 @@
+.section {
+  @include border-radius__hot-dog;
+  background-color: $back_color_secondary;
+  margin: 0 -0.382rem;
+
+  grid-template-columns: 4.618rem auto auto auto 2.5rem;
+}

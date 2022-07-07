@@ -1,0 +1,61 @@
+@charset "UTF-8";
+$front_color_default: #7a7a7a;
+$front_color_primary: #2a9d85;
+$front_color_secondary: #a6a6a6;
+$front_color_white: #f2f2f2;
+$front_color_note: #e60000;
+
+$back_color_default: #fff;
+$back_color_primary: #2a9d85;
+$back_color_secondary: #f5f0e9;
+$back_color_tertiary: #f2f2f2;
+$back_color_accent: #cb9f6b;
+
+// modal的黑幕背景色
+$modal_color_mask: rgba(0, 0, 0, 0.5);
+// modal content的背景色
+$modal_color_content: #fff;
+// loading的黑幕背景色
+$loading_color_mask: rgba(0, 0, 0, 0.5);
+// border-radius
+$global_border_radius: 0.382rem;
+// mgmt sidemenu width
+$sidemenu_width: 15rem;
+
+//reset
+@import "generals/reset";
+//reset
+
+//mixin
+@import "mixins/grid";
+@import "mixins/border-radius";
+//mixin
+
+//components
+@import "./components/label-input";
+@import "./components/section";
+@import "./components/modal";
+@import "./components/loading";
+@import "./components/chat";
+@import "./components/chat-loading";
+//components
+
+//generals
+@import "generals/window";
+@import "generals/default";
+@import "generals/page";
+@import "generals/display";
+@import "generals/label";
+@import "generals/circle";
+@import "generals/font";
+@import "generals/color";
+@import "generals/row";
+@import "generals/column";
+@import "generals/ellipsis";
+@import "generals/text-decoration";
+@import "generals/image";
+@import "generals/border-radius";
+@import "generals/align";
+@import "generals/margin";
+@import "generals/padding";
+//generals

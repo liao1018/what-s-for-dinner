@@ -1,0 +1,128 @@
+$sizes: (
+  "0": 0,
+  "1": 0.191rem,
+  "2": 0.382rem,
+  "3": 0.618rem,
+  "4": 1rem,
+  "5": 1.382rem,
+  "6": 1.618rem,
+  "7": 2rem,
+  "8": 2.382rem,
+  "9": 2.618rem,
+  "10": 3rem,
+  "11": 3.382rem,
+  "12": 3.618rem,
+);
+
+@each $name, $size in $sizes {
+  .m#{$name} {
+    margin: $size;
+  }
+  .mv#{$name} {
+    margin-top: $size;
+    margin-bottom: $size;
+  }
+  .mh#{$name} {
+    margin-left: $size;
+    margin-right: $size;
+  }
+  .mt#{$name} {
+    margin-top: $size;
+  }
+  .mb#{$name} {
+    margin-bottom: $size;
+  }
+  .ml#{$name} {
+    margin-left: $size;
+  }
+  .mr#{$name} {
+    margin-right: $size;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) { 
+  @each $name, $size in $sizes {
+    .m--m-#{$name} {
+      margin: $size;
+    }
+    .mv--m-#{$name} {
+      margin-top: $size;
+      margin-bottom: $size;
+    }
+    .mh--m-#{$name} {
+      margin-left: $size;
+      margin-right: $size;
+    }
+    .mt--m-#{$name} {
+      margin-top: $size;
+    }
+    .mb--m-#{$name} {
+      margin-bottom: $size;
+    }
+    .ml--m-#{$name} {
+      margin-left: $size;
+    }
+    .mr--m-#{$name} {
+      margin-right: $size;
+    }
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) { 
+  @each $name, $size in $sizes {
+    .m--l-#{$name} {
+      margin: $size;
+    }
+    .mv--l-#{$name} {
+      margin-top: $size;
+      margin-bottom: $size;
+    }
+    .mh--l-#{$name} {
+      margin-left: $size;
+      margin-right: $size;
+    }
+    .mt--l-#{$name} {
+      margin-top: $size;
+    }
+    .mb--l-#{$name} {
+      margin-bottom: $size;
+    }
+    .ml--l-#{$name} {
+      margin-left: $size;
+    }
+    .mr--l-#{$name} {
+      margin-right: $size;
+    }
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { 
+  @each $name, $size in $sizes {
+    .m--xl-#{$name} {
+      margin: $size;
+    }
+    .mv--xl-#{$name} {
+      margin-top: $size;
+      margin-bottom: $size;
+    }
+    .mh--xl-#{$name} {
+      margin-left: $size;
+      margin-right: $size;
+    }
+    .mt--xl-#{$name} {
+      margin-top: $size;
+    }
+    .mb--xl-#{$name} {
+      margin-bottom: $size;
+    }
+    .ml--xl-#{$name} {
+      margin-left: $size;
+    }
+    .mr--xl-#{$name} {
+      margin-right: $size;
+    }
+  }
+}

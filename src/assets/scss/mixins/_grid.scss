@@ -1,0 +1,33 @@
+@mixin grid__row-auto-fill($col_width) {
+  grid-template-columns: repeat(auto-fill, minmax($col_width, 1fr));
+}
+@mixin grid__row-center($col_width) {
+  grid-template-columns: repeat(auto-fit, minmax($col_width, max-content));
+  justify-content: center;
+}
+@mixin grid__row-start($col_width) {
+  grid-template-columns: repeat(auto-fit, minmax($col_width, max-content));
+  justify-content: start;
+}
+@mixin grid__row-end($col_width) {
+  grid-template-columns: repeat(auto-fit, minmax($col_width, max-content));
+  justify-content: end;
+}
+@mixin grid__row-evenly {
+  grid-auto-rows: 1fr;
+  grid-auto-flow: column;
+}
+
+@mixin grid__column-center {
+  align-content: center;
+}
+@mixin grid__column-start {
+  align-content: start;
+}
+@mixin grid__column-end {
+  align-content: end;
+}
+@mixin grid__column-evenly {
+  grid-auto-rows: 1fr;
+  grid-auto-flow: row;
+}

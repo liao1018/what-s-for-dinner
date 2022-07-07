@@ -1,0 +1,12 @@
+.ellipsis {
+  // 多行省略，如果要使用請裝在<span>標籤底下。
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: pre;
+  line-height: 1.5;
+}
+
+.ellipsis--one-line {
+  // 單行省略
+  white-space: nowrap;
+}

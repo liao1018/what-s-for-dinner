@@ -1,0 +1,32 @@
+.label {
+  box-sizing: border-box;
+
+  @include border-radius__hot-dog;
+  height: 1;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  white-space: nowrap;
+
+  //讓使用者無法選取內部的字
+  user-select: none;
+}
+.label--primary {
+  //透明的border
+  border: solid 1px rgba($front_color_primary, 0); 
+  background-color: $back_color_primary;
+
+  color: $front_color_white;
+}
+.label--secondary {
+  border: solid 1px $front_color_primary;
+  
+  color: $front_color_primary;
+}
+.label--disable {
+  //透明的border
+  border: solid 1px rgba($front_color_primary, 0);
+  background-color: $back_color_primary;
+  opacity: 0.5;
+
+  color: $front_color_white;
+}

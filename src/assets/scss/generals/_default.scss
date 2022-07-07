@@ -1,0 +1,125 @@
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+div {
+  // 預設所有的div都是grid
+  display: grid;
+  text-align: center;
+
+  //讓一個長單字可以自動換行
+  word-break: break-all;
+  //讓div感受到換行&換行字元
+  white-space: pre-line;
+}
+html {
+  overflow: hidden;
+  // 預設背景顏色
+  background-color: $back_color_default;
+
+  font-size: 17px;
+}
+body {
+  overflow: hidden;
+
+  // 預設字體, 顏色
+  font-family: "Avenir Next", "微軟正黑體", "SF Pro TC", "SF Pro Text",
+    "SF Pro Icons", "PingFang TC", "Helvetica Neue", "Helvetica", "Arial",
+    sans-serif;
+  color: $front_color_default;
+}
+a {
+  color: $front_color_default;
+}
+
+//placeholder
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: $front_color_secondary;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: $front_color_secondary;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: $front_color_secondary;
+}
+
+// 影像維持不會變形
+video,
+img {
+  width: 100%;
+  object-fit: cover;
+}
+
+//form :focus & 基本顏色樣式
+input:focus {
+  outline: none;
+  border: solid 0.1rem $front_color_primary;
+}
+textarea:focus {
+  outline: none;
+  border: solid 0.1rem $front_color_primary;
+}
+select:focus {
+  outline: none;
+  border: solid 0.1rem $front_color_primary;
+}
+
+//以下為form 元件預設樣式
+input {
+  box-sizing: border-box;
+  @include border-radius__hot-dog;
+  outline: none;
+  border: none;
+  padding: 0.5rem 1rem;
+
+  text-align: center;
+  font-size: 1rem;
+  color: $front_color_primary;
+  
+  //單行省略
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+
+  // ios無法選取input 問題
+  -webkit-user-select: text; /* Chrome, Opera, Safari */
+  -moz-user-select: text; /* Firefox 2+ */
+  -ms-user-select: text; /* IE 10+ */
+  user-select: text; /* Standard syntax */
+}
+input[type="date"],input[type="month"] {
+  display:block;
+
+  min-height: 2.382rem;
+  width: 100%;
+  background-color: #fff;
+
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+}
+select {
+  box-sizing: border-box;
+  
+  min-height: 2.382rem;
+  width: 100%;
+  @include border-radius;
+  background-color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+
+  font-size: 1rem;
+  color: $front_color_primary;
+}
+textarea {
+  height: 5rem;
+  @include border-radius;
+  border: none;
+  padding: 0.5rem 1rem;
+  resize: none; //不要讓使用者去拉動textarea
+
+  font-size: 1rem;
+  color: $front_color_primary;
+}

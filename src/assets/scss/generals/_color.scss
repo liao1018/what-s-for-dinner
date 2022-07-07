@@ -1,0 +1,36 @@
+$front_colors: (
+  "default": $front_color_default,
+  "primary": $front_color_primary,
+  "secondary": $front_color_secondary,
+  "white": $front_color_white,
+  "note": $front_color_note,
+);
+
+@each $name, $color in $front_colors {
+  .fc--#{$name} {
+    color: $color;
+  }
+}
+
+@each $name, $color in $front_colors {
+  .bb--#{$name} {
+    border-bottom: solid 1px $color;
+  }
+  .ba--#{$name} {
+    border: solid 1px $color;
+  }
+}
+
+$back_colors: (
+  "default": $back_color_default,
+  "primary": $back_color_primary,
+  "secondary": $back_color_secondary,
+  // 若該專案會用到時在使用。
+  "tertiary": $back_color_tertiary,
+  "accent": $back_color_accent
+);
+@each $name, $color in $back_colors {
+  .bc--#{$name} {
+    background-color: $color;
+  }
+}

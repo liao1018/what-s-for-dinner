@@ -1,0 +1,104 @@
+$sizes: (
+  "1": 2.618rem,
+  "2": 3.618rem,
+  "3": 4.618rem,
+  "4": 5.618rem,
+  "5": 6.618rem,
+  "6": 7.618rem,
+  "7": 8.618rem,
+  "half": 50%,
+  "fit": 100%,
+);
+
+@each $name, $size in $sizes {
+  .image--size-x-#{$name} {
+    width: $size;
+  }
+  .image--size-x-#{$name}.image--circle {
+    @include border-radius__circle;
+    height: $size;
+  }
+}
+
+@each $name, $size in $sizes {
+  .image--size-y-#{$name} {
+    height: $size;
+    width: auto;
+  }
+  .image--size-y-#{$name}.image--circle {
+    @include border-radius__circle;
+    width: $size;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) { 
+  @each $name, $size in $sizes {
+  .image--size-m-x-#{$name} {
+    width: $size;
+  }
+  .image--size-m-x-#{$name}.image--circle {
+    @include border-radius__circle;
+    height: $size;
+  }
+}
+
+@each $name, $size in $sizes {
+  .image--size-m-y-#{$name} {
+    height: $size;
+    width: auto;
+  }
+  .image--size-m-y-#{$name}.image--circle {
+    @include border-radius__circle;
+    width: $size;
+  }
+}
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) { 
+  @each $name, $size in $sizes {
+  .image--size-l-x-#{$name} {
+    width: $size;
+  }
+  .image--size-l-x-#{$name}.image--circle {
+    @include border-radius__circle;
+    height: $size;
+  }
+}
+
+@each $name, $size in $sizes {
+  .image--size-l-y-#{$name} {
+    height: $size;
+    width: auto;
+  }
+  .image--size-l-y-#{$name}.image--circle {
+    @include border-radius__circle;
+    width: $size;
+  }
+}
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { 
+  @each $name, $size in $sizes {
+  .image--size-xl-x-#{$name} {
+    width: $size;
+  }
+  .image--size-xl-x-#{$name}.image--circle {
+    @include border-radius__circle;
+    height: $size;
+  }
+}
+
+@each $name, $size in $sizes {
+  .image--size-xl-y-#{$name} {
+    height: $size;
+    width: auto;
+  }
+  .image--size-xl-y-#{$name}.image--circle {
+    @include border-radius__circle;
+    width: $size;
+  }
+}
+}

@@ -1,23 +1,21 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Home from '../views/Home.vue';
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home,
-  },
-  {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
+    component: () => import('../views/Window.vue'),
+    children: [
+      {
+        path: '',
+        component: () => import('../views/Index.vue'),
+      },
+    ],
   },
 ];
 
 const router = createRouter({
+  // this corresponds to the publicPath option in vue.config.js
+  // and is the base path your app is deployed at.
   history: createWebHistory(process.env.BASE_URL),
   routes,
 });

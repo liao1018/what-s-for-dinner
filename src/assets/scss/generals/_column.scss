@@ -1,0 +1,13 @@
+.column--evenly {
+  grid-auto-rows: 1fr;
+  grid-auto-flow: row;
+}
+.column--central {
+  align-content: center;
+}
+.column--start {     
+  align-content: start;
+}
+.column--end {
+  align-content: end;
+}

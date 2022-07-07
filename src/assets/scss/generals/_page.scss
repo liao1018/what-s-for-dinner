@@ -1,0 +1,125 @@
+.page {
+  box-sizing: border-box;
+  padding: 1rem;
+  overflow-y: auto;
+
+  @include grid__column-start;
+  // 當想要放在page最上方，不希望有page本身帶有padding的時候可用。
+  &__header {
+    margin: -1rem -1rem 0 -1rem;
+  }
+  &__footer {
+    margin: 0 -1rem -1rem -1rem;
+  }
+  // 當不希望左右兩邊有page預設padding時。
+  &__is-expanded {
+    margin: 0 -1rem;
+  }
+  &__text {
+    display: block;
+
+    line-height: 1.9;
+    margin: 0 1rem;
+  }
+  &__form {
+    > * {
+      margin-bottom: 0.618rem;
+    }
+    > *:last-child {
+      margin-bottom: 0;
+    }
+  }
+  &__input--with-checkbox {
+    grid-template-columns: auto 1fr;
+    > label {
+      margin-left: 1rem;
+
+      text-align: left;
+    }
+  }
+  &__input--with-button {
+    grid-template-columns: 1fr 9rem;
+    > input {
+      margin-right: 1rem;
+    }
+  }
+  &__background-image {
+    position: relative;
+    
+    background-size: cover;
+    //! need to set 'background-image' inline
+  }
+}
+
+$sizes: (
+  "25": 25%,
+  "30": 30%,
+  "35": 35%,
+  "40": 40%,
+  "45": 45%,
+  "50": 50%,
+  "55": 55%,
+  "60": 60%,
+  "65": 65%,
+  "70": 70%,
+  "75": 75%,
+  "80": 80%,
+  "85": 85%,
+  "90": 90%,
+  "95": 95%,
+  "fit": 100%,
+);
+@each $name, $size in $sizes {
+  .page__content--#{$name} {
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    width: $size;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) { 
+  @each $name, $size in $sizes {
+    .page__content--m-#{$name} {
+      box-sizing: border-box;
+      margin-left: auto;
+      margin-right: auto;
+      width: $size;
+    }
+  }
+ }
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) { 
+  @each $name, $size in $sizes {
+    .page__content--l-#{$name} {
+      box-sizing: border-box;
+      margin-left: auto;
+      margin-right: auto;
+      width: $size;
+    }
+  }
+ }
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { 
+  @each $name, $size in $sizes {
+    .page__content--xl-#{$name} {
+      box-sizing: border-box;
+      margin-left: auto;
+      margin-right: auto;
+      width: $size;
+    }
+  }
+ }
+
+// 璟馨App的主畫面編排
+.page--home{
+  grid-template-rows: 0.618fr 4fr auto 1fr;
+}
+
+// 不要page可以滑動的時候
+.page--no-scroll {
+  overflow: hidden;
+}

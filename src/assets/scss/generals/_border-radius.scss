@@ -1,0 +1,16 @@
+$sizes: (
+  "1": 0.382rem,
+  "2": 0.618rem,
+  "3": 1rem,
+  "4": 1.236rem,
+  "5": 1.382rem,
+  "6": 1.618rem,
+  "hot-dog": 100rem,
+);
+@each $name, $size in $sizes {
+  .border-radius-#{$name} {
+    border-radius: $size;
+    // !新加的東西
+    // overflow: hidden;
+  }
+}

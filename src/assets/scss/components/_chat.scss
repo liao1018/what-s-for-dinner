@@ -1,0 +1,23 @@
+.chat {
+  box-sizing: border-box;
+  height: calc(100vh - 4rem);
+
+  grid-template-rows: auto 1fr;
+  textarea {
+    height: 3.382rem;
+  }
+}
+
+.chat__content {
+  box-sizing: border-box;
+  overflow-y: scroll;
+  
+  @include grid__column-start;
+  > * {
+    margin-bottom: 0.618rem;
+  }
+}
+
+.chat__footer {
+  grid-template-columns: auto 1fr auto;
+}

@@ -1,0 +1,75 @@
+.label-input{
+    margin-right: 1rem;
+    margin-bottom: 0.618rem;
+
+    grid-template-columns: 6rem 1fr;
+    > label{
+      display: grid;
+
+      @include border-radius__left;
+      border: solid 1px $front_color_secondary;
+      background-color: $back_color_secondary;
+
+      align-content: center;
+    }
+    > input,
+    > textarea,
+    > select,
+    > div {
+      height: 2.382rem;
+      @include border-radius__right;
+      border: solid 1px $front_color_secondary;
+      border-left: none;
+
+      text-align: left;
+    }  
+}
+
+.label-input--checkbox{
+  grid-template-columns: auto 1fr;
+  > input {
+    margin: 0 2rem;
+  }
+  > label {
+    border: none;
+    background: none;
+    
+    text-align: left;
+  }
+}
+
+$sizes-y: (
+  "1": 2.382rem,
+  "2": 3.382rem,
+  "3": 4.382rem,
+  "4": 5.382rem,
+  "5": 6.382rem,
+  "6": 7.382rem,
+  "7": 8.382rem,
+  "8": 9.382rem,
+  "9": 10.382rem,
+  "10": 11.382rem,
+);
+@each $name, $size in $sizes-y {
+  .label-input--size-#{$name} {
+    > textarea,input,select,div{
+      height: $size;
+    }
+  }
+}
+
+.label-input__tags-input {
+  grid-template-columns: auto 1fr auto;
+  input {
+    @include border-radius;
+    text-align: left;
+  }
+  input:focus {
+    border: none;
+  }
+}
+
+// 在上傳圖片的時候 input需要隱藏在label當中
+input.label-input__input-hide {
+  display: none;
+}

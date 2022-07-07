@@ -1,0 +1,122 @@
+<template>
+  <div
+    :class="{
+      'window--with-hamburgermenu': hamburger.isExist,
+      'window--with-hamburgermenu--close': !hamburger.isOpen
+    }"
+    class="window window--with-sidemenu"
+  >
+    <!--side menu-->
+    <div class="column--start bc--secondary">
+      <div
+        v-if="hamburger.isExist"
+        class="fs6 pv1 pl4"
+      >
+        <font-awesome-icon
+          :icon="['fas','times']"
+          @click="hamburger.close()"
+        />
+      </div>
+      <div
+        v-for="(restaurant,index) in restaurants"
+        :key="restaurant"
+        class="pv3 ph2 row--space-between"
+      >
+        <div class="align--left">
+          <span class="ellipsis ellipsis--one-line">
+            {{ restaurant.name }}
+          </span>
+        </div>
+        <div class="column--central">
+          <font-awesome-icon
+            v-if="restaurant.canBeAdded"
+            :icon="['fas','plus']"
+            @click="addCandidate(index)"
+          />
+        </div>
+      </div>
+    </div>
+    <!--/side menu-->
+
+    <!--main content-->
+    <div>
+      <font-awesome-icon
+        v-if="hamburger.isExist"
+        :icon="['fas','bars']"
+        class="fs6 mv2 mh4"
+        @click="hamburger.show()"
+      />
+      <router-view
+        :candidates="candidates"
+        @removeCandidate="removeCandidate"
+        @addVotes="addVotes"
+        @minusVotes="minusVotes"
+      />
+    </div>
+    <!--main content-->
+  </div>
+</template>
+
+<script>
+import { ref } from 'vue';
+import composable from '@/composable/index';
+// import spiderman from '@/spiderman/index';
+import restaurantsList from '@/assets/data/restaurants.json';
+
+export default {
+  setup() {
+    const { hamburger } = composable;
+    hamburger.initialize();
+    const restaurants = ref(initializeRestaurants(restaurantsList));
+    const candidates = ref([]);
+
+    function initializeRestaurants(aRestaurantsList) {
+      return aRestaurantsList.map((restaurant) => ({
+        ...restaurant, canBeAdded: true,
+      }));
+    }
+
+    function addCandidate(index) {
+      const { name, image } = restaurants.value[index];
+      const newCandidates = [...candidates.value, { name, image, votes: 0 }];
+      candidates.value = newCandidates;
+
+      // restaurant 加過不能再加
+      restaurants.value[index].canBeAdded = false;
+    }
+
+    function removeCandidate(index) {
+      const removedCandidate = candidates.value[index];
+      const newCandidates = [
+        ...candidates.value.slice(0, index),
+        ...candidates.value.slice(index + 1),
+      ];
+      candidates.value = newCandidates;
+
+      // restaurant 可以加入
+      const indexInRestaurant = restaurants.value.findIndex(
+        (restaurant) => restaurant.name === removedCandidate.name,
+      );
+      restaurants.value[indexInRestaurant].canBeAdded = true;
+    }
+
+    function addVotes(candidateIndex) {
+      candidates.value[candidateIndex].votes += 1;
+    }
+
+    function minusVotes(candidateIndex) {
+      candidates.value[candidateIndex].votes -= 1;
+    }
+
+    return {
+      hamburger,
+      restaurants,
+      candidates,
+      addCandidate,
+      removeCandidate,
+      addVotes,
+      minusVotes,
+    };
+  },
+};
+</script>

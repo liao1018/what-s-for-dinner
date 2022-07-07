@@ -1,0 +1,72 @@
+$sizes: (
+  "1": 0.8rem,
+  "2": 1rem,
+  "3": 1.236rem,
+  "4": 1.382rem,
+  "5": 1.618rem,
+  "6": 1.764rem,
+  "7": 2rem,
+);
+@each $name, $size in $sizes {
+  .fs#{$name} {
+    font-size: $size;
+  }
+}
+$weights: (
+  "1": 200,
+  "2": 300,
+  "3": 500,
+  "4": 600,
+  "5": 700,
+  "6": 900,
+);
+@each $name, $weight in $weights {
+  .fw#{$name} {
+    font-weight: $weight;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) { 
+  @each $name, $size in $sizes {
+    .fs--m-#{$name} {
+      font-size: $size;
+    }
+  }
+
+  @each $name, $weight in $weights {
+    .fw--m-#{$name} {
+      font-weight: $weight;
+    }
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) { 
+  @each $name, $size in $sizes {
+    .fs--l-#{$name} {
+      font-size: $size;
+    }
+  }
+
+  @each $name, $weight in $weights {
+    .fw--l-#{$name} {
+      font-weight: $weight;
+    }
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { 
+  @each $name, $size in $sizes {
+    .fs--xl-#{$name} {
+      font-size: $size;
+    }
+  }
+
+  @each $name, $weight in $weights {
+    .fw--xl-#{$name} {
+      font-weight: $weight;
+    }
+  }
+}

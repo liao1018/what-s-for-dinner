@@ -1,0 +1,57 @@
+.window {
+  //讓畫面不要有滾輪
+  box-sizing: border-box; 
+  // 解決mobile上 100vh !== 100vh 問題
+  height: calc(var(--vh, 1vh) * 100);
+
+  > *:nth-child(2) {
+    box-sizing: border-box; 
+    // 解決mobile上 100vh !== 100vh 問題
+    height: calc(var(--vh, 1vh) * 100);
+  }
+}
+
+@media (min-width: 721px) {
+  .window {
+    grid-template-columns: 1fr 1.618fr 1fr;
+  }
+}
+@media (max-width: 720px) {
+  .window {
+    grid-template-columns: auto 1fr auto;
+  }
+}
+
+.window--full-screen {
+  grid-template-columns: auto 1fr auto;
+}
+
+.window--with-sidemenu {
+  grid-template-columns: auto 1fr;
+  > *:first-child {
+    width: $sidemenu_width;
+
+    left: 0;
+    transition-duration: 0.5s;
+  }
+}
+
+.window--with-hamburgermenu{
+  > *:first-child {
+    width: 61.8vw;
+
+    position: absolute;
+    height: 100%;
+    z-index: 2;
+  }
+  > *:last-child {
+    // 漢堡選單icon & 下面顯示內容
+    grid-template-rows: auto 1fr;
+  }
+}
+
+.window--with-hamburgermenu--close{
+  > *:first-child {
+    left: -61.8vw;
+  }
+}

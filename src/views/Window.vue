@@ -51,24 +51,31 @@
         @removeCandidate="removeCandidate"
         @addVotes="addVotes"
         @minusVotes="minusVotes"
+        @drawLots="drawLots"
       />
     </div>
     <!--main content-->
   </div>
+  <Modal
+    v-if="modal.setting.isShow"
+    :setting="modal.setting"
+    @close="modal.close"
+    @confirm="modal.close"
+  />
 </template>
 
 <script>
 import { ref } from 'vue';
 import composable from '@/composable/index';
-// import spiderman from '@/spiderman/index';
 import restaurantsList from '@/assets/data/restaurants.json';
 
 export default {
   setup() {
-    const { hamburger } = composable;
+    const { hamburger, modal } = composable;
     hamburger.initialize();
     const restaurants = ref(initializeRestaurants(restaurantsList));
     const candidates = ref([]);
+    const result = ref(null);
 
     function initializeRestaurants(aRestaurantsList) {
       return aRestaurantsList.map((restaurant) => ({
@@ -108,14 +115,36 @@ export default {
       candidates.value[candidateIndex].votes -= 1;
     }
 
+    function drawLots() {
+      const totalNumberOfLots = candidates.value.reduce(
+        (acc, cur) => acc + cur.votes, 0,
+      );
+
+      const randomIndex = Math.floor(Math.random() * totalNumberOfLots) + 1;
+
+      let count = 0;
+      result.value = candidates.value.find((candidate) => {
+        const isReturn = (randomIndex > count)
+        && (randomIndex <= count + candidate.votes);
+
+        count += candidate.votes;
+
+        return isReturn;
+      });
+
+      modal.confirm(`您的抽獎結果是 ${result.value.name} `);
+    }
+
     return {
       hamburger,
+      modal,
       restaurants,
       candidates,
       addCandidate,
       removeCandidate,
       addVotes,
       minusVotes,
+      drawLots,
     };
   },
 };

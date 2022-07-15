@@ -2,8 +2,9 @@
   <div class="page ph3">
     <div
       v-if="candidates.length === 0"
-      class="mv3 align--center"
+      class="page__text mv3 align--center"
     >
+      本系統將會依照餐廳的投票數權重進行抽獎，並決定您們的午餐。 <br>
       請點選右側列表加入餐廳進行投票。
     </div>
     <div class="row--auto-fill-5 mb3">
@@ -55,9 +56,10 @@
     <div class="row--end">
       <div
         v-if="candidates.length > 0 "
+        @click="$emit('drawLots')"
         class="label--primary pv2 ph4 border-radius-2"
       >
-        開始投票
+        開始抽獎
       </div>
     </div>
   </div>
@@ -74,7 +76,7 @@ export default {
       },
     },
   },
-  emits: ['removeCandidate', 'addVotes', 'minusVotes'],
+  emits: ['removeCandidate', 'addVotes', 'minusVotes', 'drawLots'],
 };
 </script>
 
